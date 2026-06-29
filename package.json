@@ -1,7 +1,7 @@
 {
-  "name": "idk",
-  "version": "0.0.0",
+  "name": "blank-webos-win98",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,6 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^8.0.12"
+    "vite": "^5.2.0"
   }
 }
