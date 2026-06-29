@@ -1,0 +1,98 @@
+/* CRT Screen Simulation Overlay */
+/* Toggled via settings */
+
+#crt-screen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(0, 0, 0, 0.15) 60%,
+      rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 999999;
+  display: none;
+}
+
+#crt-screen-overlay.active {
+  display: block;
+}
+
+#crt-screen-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 1000000;
+  background-size: 100% 3px, 6px 100%;
+}
+
+#crt-screen-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 1000001;
+  pointer-events: none;
+  animation: crt-flicker 0.15s infinite;
+}
+
+.crt-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: 1000002;
+}
+
+@keyframes crt-flicker {
+  0% {
+    opacity: 0.18;
+  }
+
+  50% {
+    opacity: 0.22;
+  }
+
+  100% {
+    opacity: 0.18;
+  }
+}
+
+.crt-roll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 0%,
+      rgba(255, 255, 255, 0.08) 10%,
+      rgba(18, 16, 16, 0) 20%);
+  animation: roll-scan 8s linear infinite;
+  pointer-events: none;
+  z-index: 1000003;
+}
+
+@keyframes roll-scan {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
